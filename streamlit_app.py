@@ -17,7 +17,7 @@ import streamlit as st
 title = st.text_input('Movie Title', 'Life of Brian')
 st.write('The current movie title is:', title)
 cnx=st.connection("snowflake")
-session = cnx._session()
+session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('fruit_name'))
 st.dataframe(data=my_dataframe, use_container_width=True)
 
